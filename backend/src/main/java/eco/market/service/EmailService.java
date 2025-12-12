@@ -12,6 +12,7 @@ public class EmailService {
 
     private final JavaMailSender mailSender;
 
+    @org.springframework.scheduling.annotation.Async
     public void sendRegistrationConfirmationEmail(String to, String name) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(to);
@@ -37,6 +38,7 @@ public class EmailService {
         }
     }
 
+    @org.springframework.scheduling.annotation.Async
     public void sendRegistrationConfirmationEmail(String email, String nombre, String verificationToken) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(email);
@@ -70,6 +72,7 @@ public class EmailService {
         }
     }
 
+    @org.springframework.scheduling.annotation.Async
     public void sendVerificationCodeEmail(String email, String nombre, String code) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(email);
