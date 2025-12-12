@@ -105,7 +105,7 @@ const VerificationModal: React.FC<VerificationModalProps> = ({ email, onVerified
                         {code.map((digit, index) => (
                             <input
                                 key={index}
-                                ref={(el: HTMLInputElement | null) => (inputRefs.current[index] = el)}
+                                ref={(el: HTMLInputElement | null) => { inputRefs.current[index] = el; }}
                                 type="text"
                                 inputMode="numeric"
                                 maxLength={1}

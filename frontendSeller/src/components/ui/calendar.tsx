@@ -59,14 +59,7 @@ function Calendar({
         day_hidden: "invisible",
         ...classNames,
       }}
-      components={{
-        IconLeft: ({ className, ...props }: React.HTMLAttributes<HTMLSpanElement>) => (
-          <ChevronLeft className={cn("size-4", className)} {...props} />
-        ),
-        IconRight: ({ className, ...props }: React.HTMLAttributes<HTMLSpanElement>) => (
-          <ChevronRight className={cn("size-4", className)} {...props} />
-        ),
-      }}
+
       {...props}
     />
   );
