@@ -1,5 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
+import { API_URL } from '../config';
 
 interface VerificationModalProps {
     email: string;
@@ -72,7 +73,7 @@ const VerificationModal: React.FC<VerificationModalProps> = ({ email, onVerified
         setError('');
 
         try {
-            const response = await axios.post('http://localhost:8080/api/auth/verify-code', {
+            const response = await axios.post(`${API_URL}/auth/verify-code`, {
                 email,
                 code: fullCode
             });
@@ -104,7 +105,7 @@ const VerificationModal: React.FC<VerificationModalProps> = ({ email, onVerified
                         {code.map((digit, index) => (
                             <input
                                 key={index}
-                                ref={(el: HTMLInputElement | null) => (inputRefs.current[index] = el)}                                type="text"
+                                ref={(el: HTMLInputElement | null) => (inputRefs.current[index] = el)} type="text"
                                 inputMode="numeric"
                                 maxLength={1}
                                 value={digit}
@@ -112,9 +113,9 @@ const VerificationModal: React.FC<VerificationModalProps> = ({ email, onVerified
                                 onKeyDown={(e) => handleKeyDown(index, e)}
                                 className="code-input"
                             />
-                        ))}   
+                        ))}
                     </div>
-        
+
                     {error && <div className="error-message">{error}</div>}
 
                     <button

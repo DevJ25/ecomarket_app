@@ -1,5 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import axios from 'axios';
+import { API_URL } from '../config';
 
 interface VerificationModalProps {
     email: string;
@@ -72,7 +73,7 @@ const VerificationModal: React.FC<VerificationModalProps> = ({ email, onVerified
         setError('');
 
         try {
-            const response = await axios.post('http://localhost:8080/api/auth/verify-code', {
+            const response = await axios.post(`${API_URL}/auth/verify-code`, {
                 email,
                 code: fullCode
             });
