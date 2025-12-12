@@ -112,9 +112,9 @@ const VerificationModal: React.FC<VerificationModalProps> = ({ email, onVerified
                                 onKeyDown={(e) => handleKeyDown(index, e)}
                                 className="code-input"
                             />
-                        ))}
+                        ))}   
                     </div>
-
+        
                     {error && <div className="error-message">{error}</div>}
 
                     <button
