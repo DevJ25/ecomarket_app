@@ -100,6 +100,7 @@ public class EmailService {
         }
     }
 
+    @org.springframework.scheduling.annotation.Async
     public void sendPurchaseReceipt(String email, String nombre, Integer pedidoId, java.math.BigDecimal total) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(email);
